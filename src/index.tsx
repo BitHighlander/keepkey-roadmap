@@ -1,16 +1,21 @@
-import { ColorModeScript } from "@chakra-ui/react"
-import * as React from "react"
-import ReactDOM from "react-dom"
-import { App } from "./App"
-import reportWebVitals from "./reportWebVitals"
-import * as serviceWorker from "./serviceWorker"
+import 'lib/polyfills'
+
+import { renderConsoleArt } from 'lib/consoleArt'
+import { reportWebVitals } from 'lib/reportWebVitals'
+import * as serviceWorker from 'lib/serviceWorker'
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import { App } from './App'
+import { AppProviders } from './AppProviders'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ColorModeScript />
-    <App />
+    <AppProviders>
+      <App />
+    </AppProviders>
   </React.StrictMode>,
-  document.getElementById("root"),
+  document.getElementById('root')
 )
 
 // If you want your app to work offline and load faster, you can change
@@ -22,3 +27,6 @@ serviceWorker.unregister()
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals()
+
+// Because ASCII Art
+renderConsoleArt()
